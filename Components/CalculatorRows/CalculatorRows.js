@@ -5,6 +5,7 @@ import CalculatorButton from "../Button/CalculatorButton";
 export default function CalculatorRows() {
   const OnNumberClick = (number) => {
     console.log(number);
+    alert("You have pressed : " + number);
   };
 
   return (
@@ -49,6 +50,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     height: "60%",
+    backgroundColor: "#444444",
+    // padding: "%",
   },
   Row1: {
     flex: 1,
