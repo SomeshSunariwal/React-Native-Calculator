@@ -5,7 +5,14 @@ export default function CalculationBox() {
   return (
     <View style={styles.OuterBox}>
       <View style={styles.Inner}>
-        <Text>Calculation</Text>
+        <View style={styles.CalculationBox}>
+          <View style={styles.UpperBox}>
+            <Text style={styles.UpperBoxText}>1 2 2 3 3 4 4 5</Text>
+          </View>
+          <View style={styles.LowerBox}>
+            <Text style={styles.LowerBoxText}>1 2 2 3 3 4 4 5</Text>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -34,5 +41,38 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     borderStyle: "solid",
+  },
+  CalculationBox: {
+    flex: 1,
+  },
+  UpperBox: {
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+  },
+  LowerBox: {
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
+  },
+  UpperBoxText: {
+    flex: 1,
+    padding: "4%",
+    width: "100%",
+    height: "100%",
+    fontSize: 20,
+    textAlign: "right",
+    fontWeight: "bold",
+    fontFamily: "sans-serif",
+  },
+  LowerBoxText: {
+    flex: 1,
+    padding: "4%",
+    width: "100%",
+    height: "100%",
+    textAlign: "right",
+    fontSize: 20,
+    fontWeight: "bold",
+    fontFamily: "sans-serif",
   },
 });
