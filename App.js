@@ -1,20 +1,22 @@
-import { StatusBar } from "expo-status-bar";
 import {
   SafeAreaView,
-  SafeAreaViewComponent,
   StyleSheet,
   Text,
   View,
+  Platform,
+  StatusBar,
 } from "react-native";
-import CalculatorButton from "./Components/Button/CalculatorButton";
+import CalculatorRows from "./Components/CalculatorRows/CalculatorRows";
+import CalculatorHeader from "./Components/Header/Header";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.OuterBox}>
       <View style={styles.container}>
-        <Text>Hello World!</Text>
-        <CalculatorButton />
-        <Text>Hello World!</Text>
+        <CalculatorHeader />
+      </View>
+      <View>
+        <CalculatorRows />
       </View>
     </SafeAreaView>
   );
@@ -22,9 +24,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   OuterBox: {
-    marginTop: 45,
-  },
-  container: {
-    backgroundColor: "red",
+    marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
 });
