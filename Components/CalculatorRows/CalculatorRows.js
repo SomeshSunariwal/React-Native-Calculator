@@ -11,10 +11,10 @@ export default function CalculatorRows() {
   return (
     <View style={styles.OuterBorder}>
       <View style={styles.Row1}>
-        <CalculatorButton number={1} OnNumberClick={OnNumberClick} />
-        <CalculatorButton number={2} OnNumberClick={OnNumberClick} />
-        <CalculatorButton number={3} OnNumberClick={OnNumberClick} />
-        <CalculatorButton number={3} OnNumberClick={OnNumberClick} />
+        <CalculatorButton number="C" OnNumberClick={OnNumberClick} />
+        <CalculatorButton number="()" OnNumberClick={OnNumberClick} />
+        <CalculatorButton number="%" OnNumberClick={OnNumberClick} />
+        <CalculatorButton number="%" OnNumberClick={OnNumberClick} />
       </View>
       <View style={styles.Row2}>
         <CalculatorButton number={7} OnNumberClick={OnNumberClick} />
