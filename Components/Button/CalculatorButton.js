@@ -1,13 +1,13 @@
 import { View, Text, Button, StyleSheet } from "react-native";
 import React from "react";
 
-const CalculatorButton = ({ number }) => {
-  const OnPressHandle = () => {
-    alert("You Pressed it me");
-  };
+const CalculatorButton = ({ number, OnNumberClick }) => {
+  // const OnPressHandle = () => {
+  //   alert("You Pressed it me");
+  // };
   return (
     <View styles={styles.container}>
-      <Button onPress={OnPressHandle} title={number.toString()} />
+      <Button onPress={() => OnNumberClick(number)} title={number.toString()} />
     </View>
   );
 };

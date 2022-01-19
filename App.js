@@ -15,7 +15,7 @@ export default function App() {
       <View style={styles.container}>
         <CalculatorHeader />
       </View>
-      <View>
+      <View style={styles.CalculatorButtonsBox}>
         <CalculatorRows />
       </View>
     </SafeAreaView>
@@ -25,5 +25,12 @@ export default function App() {
 const styles = StyleSheet.create({
   OuterBox: {
     marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    flex: 1,
+  },
+  CalculatorButtonsBox: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "flex-end",
   },
 });
