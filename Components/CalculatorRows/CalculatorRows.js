@@ -49,9 +49,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    height: "60%",
+    height: "100%",
     backgroundColor: "#444444",
-    // padding: "%",
   },
   Row1: {
     flex: 1,
