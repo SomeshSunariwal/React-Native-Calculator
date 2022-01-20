@@ -9,6 +9,7 @@ import {
 import CalculatorRows from "./Components/CalculatorRows/CalculatorRows";
 import CalculatorHeader from "./Components/Header/Header";
 import CalculationBox from "./Components/CalculationBox/CalculationBox";
+import HistoryBox from "./Components/HistoryBox/HistoryBox";
 
 export default function App() {
   return (
@@ -17,7 +18,7 @@ export default function App() {
         <CalculatorHeader />
       </View>
       <View style={styles.DesignBox}>
-        <Text>Design Area</Text>
+        <HistoryBox>History Box</HistoryBox>
       </View>
       <View style={styles.CalculationBoxStyle}>
         <CalculationBox>Calculation</CalculationBox>
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   DesignBox: {
-    backgroundColor: "#93FFD8",
+    backgroundColor: "#F5F5F5",
     flex: 1,
   },
   CalculationBoxStyle: {

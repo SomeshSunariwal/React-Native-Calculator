@@ -18,7 +18,7 @@ const CalculatorButton = ({ number, OnNumberClick }) => {
 const styles = StyleSheet.create({
   Container: {
     margin: 5,
-    backgroundColor: "#B983FF",
+    backgroundColor: "#52575D",
     width: "21%",
     justifyContent: "center",
     alignItems: "center",

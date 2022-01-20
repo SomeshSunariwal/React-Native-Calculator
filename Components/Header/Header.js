@@ -11,7 +11,7 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   Header: {
-    backgroundColor: "#548CFF",
+    backgroundColor: "#41444B",
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
