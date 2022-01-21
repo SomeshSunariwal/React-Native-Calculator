@@ -16,7 +16,7 @@ export default function HistoryBox() {
             <Text style={styles.HistoryText}>History</Text>
           </View>
           <View style={styles.ClearButtonStyle}>
-            <TouchableOpacity>
+            <TouchableOpacity style={styles.TouchableOpacityStyle}>
               <Text style={styles.ClearButtonStyle2}>clear</Text>
             </TouchableOpacity>
           </View>
@@ -80,26 +80,29 @@ const styles = StyleSheet.create({
   HistoryHeader: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "space-evenly",
   },
   HistoryTextBox: {
     flex: 1,
   },
   ClearButtonStyle: {
     flex: 1,
-    justifyContent: "",
+  },
+  TouchableOpacityStyle: {
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "flex-end",
   },
   ClearButtonStyle2: {
-    textAlign: "right",
+    textAlign: "center",
     fontSize: 12,
     color: "gray",
     borderBottomColor: "gray",
-    borderBottomWidth: 2,
-    borderEndWidth: 2,
-    borderLeftWidth: 2,
-    borderRightWidth: 2,
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
     borderRadius: 9,
-    width: "20%",
+    width: "30%",
   },
   HistoryText: {
     fontSize: 12,
