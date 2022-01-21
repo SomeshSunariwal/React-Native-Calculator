@@ -7,50 +7,8 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 
-export default function HistoryBox() {
+export default function HistoryBox({ History, setHistory }) {
   // added testing data
-  const [History, setHistory] = useState([
-    "History 1",
-    "History 2",
-    "History 3",
-    "History 4",
-    "History 5",
-    "History 6",
-    "History 7",
-    "History 8",
-    "History 9",
-    "History 10",
-    "History 1",
-    "History 2",
-    "History 3",
-    "History 4",
-    "History 5",
-    "History 6",
-    "History 7",
-    "History 8",
-    "History 9",
-    "History 10",
-    "History 1",
-    "History 2",
-    "History 3",
-    "History 4",
-    "History 5",
-    "History 6",
-    "History 7",
-    "History 8",
-    "History 9",
-    "History 10",
-    "History 1",
-    "History 2",
-    "History 3",
-    "History 4",
-    "History 5",
-    "History 6",
-    "History 7",
-    "History 8",
-    "History 9",
-    "History 10",
-  ]);
 
   const history =
     History.length === 0 ? (

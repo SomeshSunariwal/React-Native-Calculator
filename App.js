@@ -24,6 +24,8 @@ export default function App() {
     CalculatorCalculationProps
   );
 
+  const [History, setHistory] = useState([]);
+
   // When Any Number is pressed
   const KeyPressed = (key) => {
     key = key.trim();
@@ -80,6 +82,19 @@ export default function App() {
             UpperVariable:
               parseFloat(prev.LowerVariable) + parseFloat(prev.UpperVariable),
           }));
+          let result =
+            parseFloat(CalculatorCalculation.LowerVariable) +
+            parseFloat(CalculatorCalculation.UpperVariable);
+          setHistory((prev) => [
+            ...prev,
+            CalculatorCalculation.LowerVariable +
+              " " +
+              CalculatorCalculation.Operator +
+              " " +
+              CalculatorCalculation.UpperVariable +
+              " = " +
+              result,
+          ]);
         }
         break;
       case "()":
@@ -98,7 +113,9 @@ export default function App() {
         <CalculatorHeader />
       </View>
       <View style={styles.DesignBox}>
-        <HistoryBox>History Box</HistoryBox>
+        <HistoryBox History={History} setHistory={setHistory}>
+          History Box
+        </HistoryBox>
       </View>
       <View style={styles.CalculationBoxStyle}>
         <CalculationBox CalculatorCalculation={CalculatorCalculation}>
