@@ -8,17 +8,48 @@ import {
 import React, { useState } from "react";
 
 export default function HistoryBox() {
+  // added testing data
   const [History, setHistory] = useState([
     "History 1",
     "History 2",
     "History 3",
-    // "History 4",
-    // "History 5",
-    // "History 6",
-    // "History 7",
-    // "History 8",
-    // "History 9",
-    // "History 10",
+    "History 4",
+    "History 5",
+    "History 6",
+    "History 7",
+    "History 8",
+    "History 9",
+    "History 10",
+    "History 1",
+    "History 2",
+    "History 3",
+    "History 4",
+    "History 5",
+    "History 6",
+    "History 7",
+    "History 8",
+    "History 9",
+    "History 10",
+    "History 1",
+    "History 2",
+    "History 3",
+    "History 4",
+    "History 5",
+    "History 6",
+    "History 7",
+    "History 8",
+    "History 9",
+    "History 10",
+    "History 1",
+    "History 2",
+    "History 3",
+    "History 4",
+    "History 5",
+    "History 6",
+    "History 7",
+    "History 8",
+    "History 9",
+    "History 10",
   ]);
 
   const history =
@@ -58,7 +89,7 @@ export default function HistoryBox() {
         </View>
         <View style={styles.ScrolledHistory}>
           {/* Showing history */}
-          <ScrollView>{history}</ScrollView>
+          <ScrollView style={{ height: 30 }}>{history}</ScrollView>
         </View>
       </View>
     </View>
