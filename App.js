@@ -26,7 +26,7 @@ export default function App() {
 
   // When Any Number is pressed
   const KeyPressed = (key) => {
-    key = key.toString();
+    key = key.trim();
     switch (key) {
       case "1":
       case "2":
@@ -38,7 +38,6 @@ export default function App() {
       case "8":
       case "9":
       case "0":
-      case ".":
         setCalculatorCalculation((prev) => ({
           ...prev,
           LowerVariable:
@@ -49,6 +48,22 @@ export default function App() {
             prev.Operator != "" ? prev.UpperVariable + key : prev.UpperVariable,
         }));
 
+        break;
+      case ".":
+        if (CalculatorCalculation.LowerVariable.split(".").length == 1) {
+          console.log(CalculatorCalculation.LowerVariable.split(".").length);
+          setCalculatorCalculation((prev) => ({
+            ...prev,
+            LowerVariable:
+              prev.Operator === ""
+                ? prev.LowerVariable + key
+                : prev.LowerVariable,
+            UpperVariable:
+              prev.Operator != ""
+                ? prev.UpperVariable + key
+                : prev.UpperVariable,
+          }));
+        }
         break;
       case "X":
       case "÷":

@@ -58,9 +58,9 @@ export default function HistoryBox() {
         <Text style={{ color: "gray" }}>No History</Text>
       </View>
     ) : (
-      History.map((text) => {
+      History.map((text, index) => {
         return (
-          <View style={styles.TextEntry}>
+          <View key={index} style={styles.TextEntry}>
             <Text>{text}</Text>
           </View>
         );
