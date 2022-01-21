@@ -64,6 +64,7 @@ export default function App() {
 
   // When Any Number is pressed
   const KeyPressed = (key) => {
+    let result = 0;
     key = key.trim();
     switch (key) {
       case "1":
@@ -97,10 +98,11 @@ export default function App() {
       case "%":
       case "+":
       case "-":
-        let result = 0;
+        result = 0;
         if (
           CalculatorCalculation.Operator != "" &&
           CalculatorCalculation.LowerVariable != "" &&
+          CalculatorCalculation.LowerVariable !== "0" &&
           CalculatorCalculation.UpperVariable != ""
         ) {
           result = Calculator();
@@ -136,7 +138,7 @@ export default function App() {
         setCalculatorCalculation(CalculatorCalculationProps);
         break;
       case "=":
-        let result = 0;
+        result = 0;
         if (
           CalculatorCalculation.Operator != "" &&
           CalculatorCalculation.LowerVariable != "" &&

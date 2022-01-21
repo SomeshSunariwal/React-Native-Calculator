@@ -27,6 +27,8 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "Simple Calculator in React Native",
+    "githubUrl": "https://github.com/SomeshSunariwal/React-Native-Calculator"
   }
 }
