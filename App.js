@@ -26,6 +26,42 @@ export default function App() {
 
   const [History, setHistory] = useState([]);
 
+  const Calculator = () => {
+    let result = 0;
+    switch (CalculatorCalculation.Operator) {
+      case "+":
+        result =
+          parseFloat(CalculatorCalculation.UpperVariable) +
+          parseFloat(CalculatorCalculation.LowerVariable);
+        break;
+      case "-":
+        result =
+          parseFloat(CalculatorCalculation.UpperVariable) -
+          parseFloat(CalculatorCalculation.LowerVariable);
+        break;
+      case "x":
+        result =
+          parseFloat(CalculatorCalculation.UpperVariable) *
+          parseFloat(CalculatorCalculation.LowerVariable);
+        break;
+      case "÷":
+        if (parseFloat(CalculatorCalculation.LowerVariable) !== 0) {
+          result =
+            parseFloat(CalculatorCalculation.UpperVariable) /
+            parseFloat(CalculatorCalculation.LowerVariable);
+        } else {
+          alert("Zero Division Error");
+        }
+        break;
+      case "%":
+        result =
+          parseFloat(CalculatorCalculation.UpperVariable) %
+          parseFloat(CalculatorCalculation.LowerVariable);
+        break;
+    }
+    return result;
+  };
+
   // When Any Number is pressed
   const KeyPressed = (key) => {
     key = key.trim();
@@ -42,7 +78,8 @@ export default function App() {
       case "0":
         setCalculatorCalculation((prev) => ({
           ...prev,
-          LowerVariable: prev.LowerVariable + key,
+          LowerVariable:
+            prev.LowerVariable === "0" ? key : prev.LowerVariable + key,
         }));
 
         break;
@@ -60,38 +97,65 @@ export default function App() {
       case "%":
       case "+":
       case "-":
-        setCalculatorCalculation((prev) => ({
-          ...prev,
-          LowerVariable: "0",
-          UpperVariable: prev.LowerVariable,
-          Operator: key,
-        }));
-        break;
-      case "C":
-        setCalculatorCalculation(CalculatorCalculationProps);
-        break;
-      case "=":
+        let result = 0;
         if (
           CalculatorCalculation.Operator != "" &&
           CalculatorCalculation.LowerVariable != "" &&
           CalculatorCalculation.UpperVariable != ""
         ) {
+          result = Calculator();
+          setCalculatorCalculation((prev) => ({
+            ...prev,
+            LowerVariable: "0",
+            UpperVariable: result,
+          }));
+          // Setting the History into table
+          setHistory((prev) => [
+            ...prev,
+            CalculatorCalculation.UpperVariable +
+              " " +
+              CalculatorCalculation.Operator +
+              " " +
+              CalculatorCalculation.LowerVariable +
+              " = " +
+              result,
+          ]);
+        } else {
           setCalculatorCalculation((prev) => ({
             ...prev,
             LowerVariable: "0",
             UpperVariable:
-              parseFloat(prev.LowerVariable) + parseFloat(prev.UpperVariable),
+              prev.LowerVariable === "0"
+                ? prev.UpperVariable
+                : prev.LowerVariable,
+            Operator: key,
           }));
-          let result =
-            parseFloat(CalculatorCalculation.LowerVariable) +
-            parseFloat(CalculatorCalculation.UpperVariable);
+        }
+        break;
+      case "C":
+        setCalculatorCalculation(CalculatorCalculationProps);
+        break;
+      case "=":
+        let result = 0;
+        if (
+          CalculatorCalculation.Operator != "" &&
+          CalculatorCalculation.LowerVariable != "" &&
+          CalculatorCalculation.UpperVariable != ""
+        ) {
+          result = Calculator();
+          setCalculatorCalculation((prev) => ({
+            ...prev,
+            LowerVariable: "0",
+            UpperVariable: result,
+          }));
+          // Setting the History into table
           setHistory((prev) => [
             ...prev,
-            CalculatorCalculation.LowerVariable +
+            CalculatorCalculation.UpperVariable +
               " " +
               CalculatorCalculation.Operator +
               " " +
-              CalculatorCalculation.UpperVariable +
+              CalculatorCalculation.LowerVariable +
               " = " +
               result,
           ]);
@@ -100,6 +164,15 @@ export default function App() {
       case "()":
         break;
       case "+/-":
+        // Handling switching between making number reverse
+        setCalculatorCalculation((prev) => ({
+          ...prev,
+          LowerVariable:
+            prev.LowerVariable.charAt(0) === "-"
+              ? prev.LowerVariable.slice(1)
+              : "-" + prev.LowerVariable,
+        }));
+
         break;
       default:
         alert("Error " + key);
@@ -118,9 +191,7 @@ export default function App() {
         </HistoryBox>
       </View>
       <View style={styles.CalculationBoxStyle}>
-        <CalculationBox CalculatorCalculation={CalculatorCalculation}>
-          Calculation
-        </CalculationBox>
+        <CalculationBox CalculatorCalculation={CalculatorCalculation} />
       </View>
       <View style={styles.CalculatorButtonsBox}>
         <CalculatorRows KeyPressed={KeyPressed} />

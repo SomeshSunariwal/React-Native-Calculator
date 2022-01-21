@@ -12,6 +12,9 @@ export default function CalculationBox({ CalculatorCalculation }) {
             </Text>
           </View>
           <View style={styles.LowerBox}>
+            <Text style={{ marginRight: "4%", fontSize: 25 }}>
+              {CalculatorCalculation.Operator}
+            </Text>
             <Text style={styles.LowerBoxText}>
               {CalculatorCalculation.LowerVariable}
             </Text>
