@@ -1,16 +1,20 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-export default function CalculationBox() {
+export default function CalculationBox({ CalculatorCalculation }) {
   return (
     <View style={styles.OuterBox}>
       <View style={styles.Inner}>
         <View style={styles.CalculationBox}>
           <View style={styles.UpperBox}>
-            <Text style={styles.UpperBoxText}>1 2 2 3 3 4 4 5</Text>
+            <Text style={styles.UpperBoxText}>
+              {CalculatorCalculation.UpperVariable}
+            </Text>
           </View>
           <View style={styles.LowerBox}>
-            <Text style={styles.LowerBoxText}>1 2 2 3 3 4 4 5</Text>
+            <Text style={styles.LowerBoxText}>
+              {CalculatorCalculation.LowerVariable}
+            </Text>
           </View>
         </View>
       </View>
