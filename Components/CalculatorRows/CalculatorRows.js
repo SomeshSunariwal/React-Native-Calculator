@@ -14,13 +14,13 @@ export default function CalculatorRows() {
         <CalculatorButton number="C" OnNumberClick={OnNumberClick} />
         <CalculatorButton number="()" OnNumberClick={OnNumberClick} />
         <CalculatorButton number="%" OnNumberClick={OnNumberClick} />
-        <CalculatorButton number="%" OnNumberClick={OnNumberClick} />
+        <CalculatorButton number="÷" OnNumberClick={OnNumberClick} />
       </View>
       <View style={styles.Row}>
         <CalculatorButton number={7} OnNumberClick={OnNumberClick} />
         <CalculatorButton number={8} OnNumberClick={OnNumberClick} />
         <CalculatorButton number={9} OnNumberClick={OnNumberClick} />
-        <CalculatorButton number="*" OnNumberClick={OnNumberClick} />
+        <CalculatorButton number="x" OnNumberClick={OnNumberClick} />
       </View>
       <View style={styles.Row}>
         <CalculatorButton number={4} OnNumberClick={OnNumberClick} />
