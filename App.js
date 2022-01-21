@@ -40,12 +40,7 @@ export default function App() {
       case "0":
         setCalculatorCalculation((prev) => ({
           ...prev,
-          LowerVariable:
-            prev.Operator === ""
-              ? prev.LowerVariable + key
-              : prev.LowerVariable,
-          UpperVariable:
-            prev.Operator != "" ? prev.UpperVariable + key : prev.UpperVariable,
+          LowerVariable: prev.LowerVariable + key,
         }));
 
         break;
@@ -54,18 +49,11 @@ export default function App() {
           console.log(CalculatorCalculation.LowerVariable.split(".").length);
           setCalculatorCalculation((prev) => ({
             ...prev,
-            LowerVariable:
-              prev.Operator === ""
-                ? prev.LowerVariable + key
-                : prev.LowerVariable,
-            UpperVariable:
-              prev.Operator != ""
-                ? prev.UpperVariable + key
-                : prev.UpperVariable,
+            LowerVariable: prev.LowerVariable + key,
           }));
         }
         break;
-      case "X":
+      case "x":
       case "÷":
       case "%":
       case "+":
@@ -74,12 +62,25 @@ export default function App() {
           ...prev,
           LowerVariable: "0",
           UpperVariable: prev.LowerVariable,
+          Operator: key,
         }));
         break;
       case "C":
         setCalculatorCalculation(CalculatorCalculationProps);
         break;
       case "=":
+        if (
+          CalculatorCalculation.Operator != "" &&
+          CalculatorCalculation.LowerVariable != "" &&
+          CalculatorCalculation.UpperVariable != ""
+        ) {
+          setCalculatorCalculation((prev) => ({
+            ...prev,
+            LowerVariable: "0",
+            UpperVariable:
+              parseFloat(prev.LowerVariable) + parseFloat(prev.UpperVariable),
+          }));
+        }
         break;
       case "()":
         break;
