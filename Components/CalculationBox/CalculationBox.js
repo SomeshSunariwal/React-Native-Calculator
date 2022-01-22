@@ -12,14 +12,7 @@ export default function CalculationBox({ CalculatorCalculation }) {
             </Text>
           </View>
           <View style={styles.LowerBox}>
-            <Text
-              style={{
-                marginRight: "4%",
-                fontSize: 25,
-                flex: 1,
-                textAlign: "left",
-              }}
-            >
+            <Text style={styles.OperatorSign}>
               {CalculatorCalculation.Operator}
             </Text>
             <Text style={styles.LowerBoxText}>
@@ -79,6 +72,12 @@ const styles = StyleSheet.create({
     textAlign: "right",
     fontWeight: "bold",
     fontFamily: "sans-serif",
+  },
+  OperatorSign: {
+    marginRight: "4%",
+    fontSize: 25,
+    flex: 1,
+    textAlign: "left",
   },
   LowerBoxText: {
     flex: 1,
