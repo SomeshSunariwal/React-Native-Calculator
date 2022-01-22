@@ -58,6 +58,12 @@ export default function App() {
           parseFloat(CalculatorCalculation.UpperVariable) %
           parseFloat(CalculatorCalculation.LowerVariable);
         break;
+      case "xⁿ":
+        result = Math.pow(
+          parseFloat(CalculatorCalculation.UpperVariable),
+          parseFloat(CalculatorCalculation.LowerVariable)
+        );
+        break;
     }
     return result;
   };
@@ -84,6 +90,7 @@ export default function App() {
         }));
 
         break;
+
       case ".":
         if (CalculatorCalculation.LowerVariable.split(".").length == 1) {
           console.log(CalculatorCalculation.LowerVariable.split(".").length);
@@ -93,11 +100,13 @@ export default function App() {
           }));
         }
         break;
+
       case "x":
       case "÷":
       case "%":
       case "+":
       case "-":
+      case "xⁿ":
         result = 0;
         if (
           CalculatorCalculation.Operator != "" &&
@@ -112,11 +121,15 @@ export default function App() {
             UpperVariable: result,
           }));
           // Setting the History into table
+          let op =
+            CalculatorCalculation.Operator === "xⁿ"
+              ? "pow"
+              : CalculatorCalculation.Operator;
           setHistory((prev) => [
             ...prev,
             CalculatorCalculation.UpperVariable +
               " " +
-              CalculatorCalculation.Operator +
+              op +
               " " +
               CalculatorCalculation.LowerVariable +
               " = " +
@@ -134,9 +147,11 @@ export default function App() {
           }));
         }
         break;
+
       case "C":
         setCalculatorCalculation(CalculatorCalculationProps);
         break;
+
       case "=":
         result = 0;
         if (
@@ -151,11 +166,15 @@ export default function App() {
             UpperVariable: result,
           }));
           // Setting the History into table
+          let op =
+            CalculatorCalculation.Operator === "xⁿ"
+              ? "pow"
+              : CalculatorCalculation.Operator;
           setHistory((prev) => [
             ...prev,
             CalculatorCalculation.UpperVariable +
               " " +
-              CalculatorCalculation.Operator +
+              op +
               " " +
               CalculatorCalculation.LowerVariable +
               " = " +
@@ -163,8 +182,7 @@ export default function App() {
           ]);
         }
         break;
-      case "()":
-        break;
+
       case "+/-":
         // Handling switching between making number reverse
         setCalculatorCalculation((prev) => ({
@@ -174,8 +192,8 @@ export default function App() {
               ? prev.LowerVariable.slice(1)
               : "-" + prev.LowerVariable,
         }));
-
         break;
+
       default:
         alert("Error " + key);
         break;

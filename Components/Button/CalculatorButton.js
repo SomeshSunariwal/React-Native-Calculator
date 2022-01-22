@@ -25,7 +25,8 @@ const styles = StyleSheet.create({
   },
   ButtonStyle: {
     textAlign: "center",
-    fontSize: 30,
+    fontSize: 35,
+    color: "black",
   },
   TouchButton: {
     justifyContent: "center",
