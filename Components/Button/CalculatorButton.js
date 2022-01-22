@@ -1,16 +1,15 @@
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 
 const CalculatorButton = ({ number, OnNumberClick }) => {
   return (
     <View style={styles.Container}>
-      <Text style={styles.ButtonStyle}>
-        <Button
-          color="transparent"
-          onPress={() => OnNumberClick(number)}
-          title={number.toString()}
-        />
-      </Text>
+      <TouchableOpacity
+        style={styles.TouchButton}
+        onPress={() => OnNumberClick(number)}
+      >
+        <Text style={styles.ButtonStyle}>{number}</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -27,6 +26,17 @@ const styles = StyleSheet.create({
   ButtonStyle: {
     textAlign: "center",
     fontSize: 30,
+  },
+  TouchButton: {
+    justifyContent: "center",
+    height: "100%",
+    width: "100%",
+    borderRadius: 50,
+    borderRightWidth: 2,
+    borderBottomWidth: 2,
+    borderLeftWidth: 2,
+    borderTopWidth: 2,
+    borderColor: "gray",
   },
 });
 
