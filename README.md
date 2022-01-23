@@ -31,6 +31,12 @@ use the below url to run the app
 
    https://apetools.webprofusion.com/#/
 
+5. Recommended JAVA version download link
+
+   https://www.techspot.com/downloads/5198-java-jre.html
+
+6. Need to set JAVA_HOME environment variable.
+
 ## 3. Calculator Frontend
 
 ![image1](./images/image1.jpg)
