@@ -37,6 +37,22 @@ use the below url to run the app
 
 6. Need to set JAVA_HOME environment variable.
 
+7. Testing APK
+
+   [Calculator.APK](./Calculator.apk)
+
+8. Second Way to build APK
+
+```bash
+expo build:android -t apk
+```
+
+9. Get the Key if you build the key from the expo server
+
+```bash
+expo fetch:android:keystore
+```
+
 ## 3. Calculator Frontend
 
 ![image1](./images/image1.jpg)
