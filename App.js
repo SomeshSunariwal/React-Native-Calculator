@@ -20,6 +20,8 @@ export default function App() {
     Operator: "",
   };
 
+  console.log("Testing")
+
   const [CalculatorCalculation, setCalculatorCalculation] = useState(
     CalculatorCalculationProps
   );
@@ -128,12 +130,12 @@ export default function App() {
           setHistory((prev) => [
             ...prev,
             CalculatorCalculation.UpperVariable +
-              " " +
-              op +
-              " " +
-              CalculatorCalculation.LowerVariable +
-              " = " +
-              result,
+            " " +
+            op +
+            " " +
+            CalculatorCalculation.LowerVariable +
+            " = " +
+            result,
           ]);
         } else {
           setCalculatorCalculation((prev) => ({
@@ -173,12 +175,12 @@ export default function App() {
           setHistory((prev) => [
             ...prev,
             CalculatorCalculation.UpperVariable +
-              " " +
-              op +
-              " " +
-              CalculatorCalculation.LowerVariable +
-              " = " +
-              result,
+            " " +
+            op +
+            " " +
+            CalculatorCalculation.LowerVariable +
+            " = " +
+            result,
           ]);
         }
         break;
