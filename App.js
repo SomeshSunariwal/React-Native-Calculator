@@ -20,8 +20,6 @@ export default function App() {
     Operator: "",
   };
 
-  console.log("Testing")
-
   const [CalculatorCalculation, setCalculatorCalculation] = useState(
     CalculatorCalculationProps
   );
